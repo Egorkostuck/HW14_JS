@@ -41,8 +41,22 @@ header {
   text-decoration: underline;
 }
 
+li:nth-child(4) {
+  position: relative;
+}
 .icon-shopping-cart {
   font-size: 24px;
+}
+
+.number-of-purchases {
+  border-radius: 50%;
+  background-color: #000;
+  color: #fff;
+  font-size: 13px;
+  width: 15px;
+  height: 15px;
+  position:absolute;
+  left: 1263px;
 }
 
 .div-air {
@@ -108,5 +122,109 @@ header {
 
 .div-new-arrivals {
   color: #000000;
+}
+
+.catalog-container {
+  width: 65%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-top: 30px;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.catalog-container .product-block {
+  width: 350px;
+  height: 450px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.catalog-container .product-block h3 {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.catalog-container .product-block img {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+}
+
+.catalog-container .product-block p {
+  widows: auto;
+  height: auto;
+  font-size: 14px;
+  text-overflow: clip;
+}
+
+.contact-container {
+  width: 65%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-top: 30px;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(28, 216, 210, 0.9) 0%, rgba(147, 237, 199, 0.9) 100%);
+  box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.25), 1px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.contact-container .contact-block {
+  width: 50%;
+  text-align: center;
+  color: #ffffff;
+}
+
+.contact-container .contact-block h2,
+.contact-container .contact-block p {
+  margin-bottom: 15px;
+}
+
+.cart-container {
+  width: 65%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-top: 30px;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.cart-container .cart-block {
+  width: 350px;
+  height: 450px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cart-container .cart-block h3 {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.cart-container .cart-block img {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+}
+
+.cart-container .cart-block p {
+  widows: auto;
+  height: auto;
+  font-size: 14px;
+  text-overflow: clip;
 }
 /*# sourceMappingURL=style.css.map */

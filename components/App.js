@@ -1,10 +1,19 @@
+import './utilits/utilits.js';
 import './../components/header/header.js';
-import {newArr} from './header/header.js';
+import {routes} from './header/header.js';
 import {HomeContainer} from './home/homePage.js';
+import data from './api/api.js'
 
 const $ = (selector) => {
     return document.querySelector(selector);
 };
+
+export let products = [];
+
+data().then(result => {
+    products = result;
+    // debugger
+});
 
 const create = (tag, html, classes, attrs = []) => {
     const element = document.createElement(tag)
@@ -23,17 +32,16 @@ const addTo = (element, toElement) => {
 };
 
 const createHeader = create('header','','header');
-newArr.forEach(item => {
+routes.forEach(item => {
     $('header').appendChild(create(item.tag, item.html, item.classes));    
 });
 
 HomeContainer();
+const link = document.querySelectorAll('li');
 
-newArr.map(linkName => {
-    const link = document.querySelector('li');
-    link.addEventListener('click', () => {
-        location.hash = linkName.name;
-        linkName.component();
-        // debugger     
+routes.map((route, index) => {
+    link[index].addClass('my-link').listener('click', () => {
+        location.hash = route.path;
+        route.component(products);
     });
 });

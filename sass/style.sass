@@ -26,6 +26,16 @@ header
 .link:hover
     text-decoration: underline
 
+.number-of-purchases
+    width: 15px
+    height: 15px
+    border: 1px solid #000000
+    border-radius: : 50%
+    font-size: 8px
+    background-color: #000
+    color: #fff
+    position: absolute
+
 .icon-shopping-cart
     font-size: 24px
 
@@ -92,4 +102,84 @@ header
     color: #000000
 .div-coming-son
     @extend %Div
-    
+
+.catalog-container
+    width: 65%
+    max-width: 1280px
+    margin-left: auto
+    margin-top: 30px
+    margin-right: auto
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    grid-template-rows: auto
+    .product-block
+        width: 350px
+        height: 450px
+        border: 1px solid #000000
+        border-radius: 10px
+        text-align: center
+        margin-bottom: 30px
+        h3
+            font-size: 18px
+            text-align: center
+            margin-top: 10px
+            margin-bottom: 20px
+        img
+            width: 150px
+            height: 150px
+            margin-bottom: 15px
+        p
+            widows: auto
+            height: auto
+            font-size: 14px         
+            text-overflow: clip
+
+.contact-container
+    width: 65%
+    max-width: 1280px
+    margin-left: auto
+    margin-top: 30px
+    margin-right: auto
+    display: flex
+    justify-content: space-between 
+    align-items: center
+    background: linear-gradient(90deg, rgba(28, 216, 210, 0.9) 0%, rgba(147, 237, 199, 0.9) 100%)
+    box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.25), 1px 1px 4px rgba(0, 0, 0, 0.25)
+    .contact-block
+        width: 50%
+        text-align: center
+        color: #ffffff
+        h2, 
+        p
+            margin-bottom: 15px
+
+.cart-container
+    width: 65%
+    max-width: 1280px
+    margin-left: auto
+    margin-top: 30px
+    margin-right: auto
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    grid-template-rows: auto
+    .cart-block        
+        width: 350px
+        height: 450px
+        border: 1px solid #000000
+        border-radius: 10px
+        text-align: center
+        margin-bottom: 30px
+        h3
+            font-size: 18px
+            text-align: center
+            margin-top: 10px
+            margin-bottom: 20px
+        img
+            width: 150px
+            height: 150px
+            margin-bottom: 15px
+        p
+            widows: auto
+            height: auto
+            font-size: 14px         
+            text-overflow: clip

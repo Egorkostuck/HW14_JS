@@ -3,6 +3,8 @@ export function HomeContainer () {
     const $ = selector => {
         return document.querySelector(selector);
     };
+    
+    document.querySelector('.container') ? document.querySelector('.container').remove() : null;
 
     const addContainer = document.createElement('container');
     const addDivAir = document.createElement('div');
@@ -11,7 +13,7 @@ export function HomeContainer () {
     const newAirs = document.createElement('div');
     const comingSon = document.createElement('div');
 
-    addContainer.classList.add('home-container');
+    addContainer.classList.add('container');
     addDivAir.classList.add('div-air');
     addPromo.classList.add('div-promo');
 
