@@ -23,6 +23,7 @@ body {
 header {
   width: 70%;
   max-width: 1280px;
+  /* position: fixed; */
   display: flex;
   justify-content: space-evenly;
   text-align: center;
@@ -158,10 +159,12 @@ li:nth-child(4) {
 }
 
 .catalog-container .product-block p {
-  widows: auto;
   height: auto;
   font-size: 14px;
-  text-overflow: clip;
+  overflow-y: hidden;
+  max-height: 120px;
+  overflow-y: scroll;
+  padding: 10px 10px;
 }
 
 .contact-container {
@@ -211,20 +214,41 @@ li:nth-child(4) {
 .cart-container .cart-block h3 {
   font-size: 18px;
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .cart-container .cart-block img {
   width: 150px;
   height: 150px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .cart-container .cart-block p {
-  widows: auto;
+  width: auto;
   height: auto;
   font-size: 14px;
-  text-overflow: clip;
+  margin-bottom: 5px; 
+}
+.cart-container .cart-block .description {
+  max-height: 75px;
+  overflow-y: scroll; 
+  margin-bottom: 10px;
+}
+.cart-container .cart-block .input-for-quantity {
+  width: 40px;
+  max-width: 150px;
+  margin-bottom: 10px;
+}
+.cart-container .cart-block .remove-button {
+  width: 130px;
+  height: 30px;
+  background-color: #be1616;
+  color: #fff;
+  border: 1px solid transparent;
+  outline: none;
+}
+.cart-container .cart-block .icon-ok {
+  color: green;
 }
 /*# sourceMappingURL=style.css.map */

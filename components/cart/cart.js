@@ -27,8 +27,13 @@ export function CartContainer () {
     products.map(key => {
         let cartBlock = document.createElement('div');
         cartBlock.addClass('cart-block');
-        productInCart.map(item => {
-            if (item === key.id) {
+        productInCart.reduce(
+            (distinct,num) => 
+                distinct.includes(JSON.stringify(num)) ? 
+                (distinct) : [...distinct, JSON.stringify(num)] , [])
+        .map(item => {
+            item = JSON.parse(item);
+            if (item.id === key.id) {
                 newArrProducts.push(key);
                 cartBlock.insertAdjacentHTML('beforeend', `
                 <h3>${key.category}</h3>
@@ -40,11 +45,26 @@ export function CartContainer () {
                 <img src="${key.image}" alt="">
                 `);
                 cartBlock.insertAdjacentHTML('beforeend', `
-                <p>${key.description}</p>
+                <p class="description">${key.description}</p>
                 `);
                 cartBlock.insertAdjacentHTML('beforeend', `
                 <p>${key.title}</p>
                 `);
+                cartBlock.insertAdjacentHTML('beforeend', `
+                <input class="input-for-quantity" type="number" value="${item.count}"><button class="button-for-quantity" type="button"><i class="icon-plus"></i></button></br>
+                `);
+
+                let searchButton = cartBlock.querySelector('.button-for-quantity');
+                searchButton.addEventListener('click', () => {
+                    let input = cartBlock.querySelector('.input-for-quantity');
+                    item.count = +input.value;
+                    setCookie('products', productInCart);
+                    console.log(getCookie('products'));
+                   
+                    searchButton.insertAdjacentHTML('afterend', `
+                    <i class="icon-ok"></i>
+                    `);
+                });
 
                 let removeButton = document.createElement('button');
                 removeButton.addClass('remove-button');
@@ -52,8 +72,17 @@ export function CartContainer () {
                 removeButton.innerHTML = 'Remove from cart'
                 
                 removeButton.addEventListener('click', () => {
-                    delete productInCart[productInCart.indexOf(key.id)];
-                    setCookie('products', productInCart);
+                    let itemInCart = +getCookie('cartItem');
+                    itemInCart--;
+                    const circle = document.createElement('div');
+                    circle.innerHTML = `${itemInCart}`;  
+                    circle.addClass('number-of-purchases');                   
+                    document.querySelector('.number-of-purchases') ? document.querySelector('.number-of-purchases').remove() : null
+                    circle.addTo('header');                 
+                    let newProduct = productInCart.filter(item => key.id !== item.id);
+                
+                    setCookie('products', newProduct);
+                    setCookie('cartItem', itemInCart);
                     CartContainer();
                 });
                 cartBlock.appendChild(removeButton);
@@ -67,3 +96,4 @@ export function CartContainer () {
     });
     
 }
+

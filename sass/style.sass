@@ -129,10 +129,16 @@ header
             height: 150px
             margin-bottom: 15px
         p
-            widows: auto
             height: auto
             font-size: 14px         
             text-overflow: clip
+            overflow-y: hidden
+            max-height: 120px
+        p:hover
+            overflow-y: unset
+            background-color: #6d6d6d
+            max-height: 400px
+
 
 .contact-container
     width: 65%
@@ -173,7 +179,7 @@ header
             font-size: 18px
             text-align: center
             margin-top: 10px
-            margin-bottom: 20px
+            margin-bottom: 15px
         img
             width: 150px
             height: 150px
@@ -183,3 +189,14 @@ header
             height: auto
             font-size: 14px         
             text-overflow: clip
+        .input-for-quantity
+            width: 50px
+            max-width: 150px
+        .remove-button
+            width: 130px
+            height: 25px
+            background-color: #be1616
+        .icon-ok
+            font-color: green
+
+            

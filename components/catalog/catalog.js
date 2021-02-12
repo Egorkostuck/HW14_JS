@@ -27,21 +27,37 @@ export function CatalogContainer(products) {
         const good = document.createElement('div');
         good.listener('click', () => {
             count++;
-            if(count !== 0) {
-                const circle = document.createElement('div');
-                circle.addClass('number-of-purchases');
-                circle.innerHTML = `${count}`;
-                document.querySelector('.number-of-purchases') ? document.querySelector('.number-of-purchases').remove() : null
-                circle.addTo('header');
+            if(count !== 0 && count!== undefined) {
+                let itemInCart = getCookie('cartItem');
+                if (itemInCart !== undefined && itemInCart !== null) {
+                    let allCount = itemInCart + 1;
+                    const circle = document.createElement('div');
+                    circle.addClass('number-of-purchases');
+                    circle.innerHTML = `${allCount}`;                    
+                    document.querySelector('.number-of-purchases') ? document.querySelector('.number-of-purchases').remove() : null
+                    circle.addTo('header');
+                    setCookie('cartItem', allCount);
+                } else {
+                    const circle = document.createElement('div');
+                    circle.addClass('number-of-purchases');
+                    circle.innerHTML = `${count}`;                    
+                    document.querySelector('.number-of-purchases') ? document.querySelector('.number-of-purchases').remove() : null
+                    circle.addTo('header');
+                    setCookie('cartItem', count);
+                }                
             }
-            // debugger
+                    
             let myCookie = getCookie('products');
             if(myCookie !== undefined) {
-                myCookie.push(item.id);
+                myCookie.push({id: item.id, count: 1});
             } else {
-                myCookie = [item.id];
+                myCookie = [{id: item.id, count: 1}];
             }
+            good.setAttribute('style', 'pointer-events: none; opacity: 0.4;');
             setCookie('products', myCookie);
+            
+            const iconCart = good.querySelector('.icon-shopping-cart');
+            iconCart.setAttribute('style', 'color: green;');
         });
         good.insertAdjacentHTML('beforeend', `
         <div class="product-block">

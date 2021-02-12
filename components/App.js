@@ -3,6 +3,7 @@ import './../components/header/header.js';
 import {routes} from './header/header.js';
 import {HomeContainer} from './home/homePage.js';
 import data from './api/api.js'
+import {getCookie} from './useCookie.js';
 
 const $ = (selector) => {
     return document.querySelector(selector);
@@ -45,3 +46,16 @@ routes.map((route, index) => {
         route.component(products);
     });
 });
+
+const cartGood = () => {
+    let count = getCookie('cartItem');
+    console.log(count);
+    if(count !== 0 && count !== undefined) {
+        const circle = document.createElement('div');
+        circle.addClass('number-of-purchases');
+        circle.innerHTML = `${count}`;
+        document.querySelector('.number-of-purchases') ? document.querySelector('.number-of-purchases').remove() : null
+        circle.addTo('header');
+    }
+};
+cartGood();
